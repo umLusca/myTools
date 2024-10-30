@@ -1,6 +1,6 @@
 window.FontAwesomeKitConfig = {
-    asyncLoading: {enabled: 1},
-    autoA11y: {enabled: !0},
+    asyncLoading: {enabled: true},
+    autoA11y: {enabled: false},
     baseUrl: "https://ka-f.fontawesome.com",
     baseUrlKit: "https://kit.fontawesome.com",
     detectConflictsUntil: null,
@@ -8,11 +8,11 @@ window.FontAwesomeKitConfig = {
     id: 124537620,
     license: "pro",
     method: "css",
-    minify: {enabled: !0},
+    minify: {enabled: false},
     token: "dd7b63f2bb",
-    v4FontFaceShim: {enabled: !0},
-    v4shim: {enabled: !0},
-    v5FontFaceShim: {enabled: !0},
+    v4FontFaceShim: {enabled: false},
+    v4shim: {enabled: false},
+    v5FontFaceShim: {enabled: false},
     version: "6.6.0"
 }, function (t) {
     "function" == typeof define && define.amd ? define("kit-loader", t) : t()
