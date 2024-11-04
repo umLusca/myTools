@@ -1,4 +1,3 @@
-
 $("form[ajax]").on("submit", (e) => {
 
     e.preventDefault();
@@ -18,7 +17,7 @@ $("form[ajax]").on("submit", (e) => {
                 data[key] = value;
             }
         }
-        if (data["disabled"]){
+        if (data["disabled"]) {
             return;
         }
 
@@ -26,24 +25,26 @@ $("form[ajax]").on("submit", (e) => {
         $(".return").slideUp().text("").removeClass("alert-danger alert-info alert-success");
 
         //por padrão é o do formulário.
-        data["query"] = $($this).attr("action");
+
+        let action = data["query"];
+        action = $($this).attr("action");
         if (e.originalEvent) {
 
             //Ele poderá ser substituido pelo o do botão, caso exista.
             let buttonAction = $(e.originalEvent.submitter).attr("formaction");
             if (typeof buttonAction === "string" && buttonAction.length >= 2) {
-                data["query"] = buttonAction;
+                action = buttonAction;
             }
         }
         $($this).find(".return").addClass("alert-info").removeClass("alert-danger").text("Aguarde...").slideDown();
-        if (!data["query"]) data["query"] = "";
+
         let url = "";
         if (window.apiCall) url = window.apiCall;
 
         let ajax = () => {
             $.ajax({
                 method: "POST",
-                url: url + data["query"],
+                url: url + action,
                 data: data,
                 dataType: "json",
                 success: (d) => {
