@@ -36,11 +36,14 @@ $("form[ajax]").on("submit", (e) => {
             }
         }
         $($this).find(".return").addClass("alert-info").removeClass("alert-danger").text("Aguarde...").slideDown();
+        if (!data["query"]) data["query"] = "";
+        let url = "";
+        if (window.apiCall) url = window.apiCall;
 
         let ajax = () => {
             $.ajax({
                 method: "POST",
-                url: "https://api.cur.tf" + data["query"],
+                url: url + data["query"],
                 data: data,
                 dataType: "json",
                 success: (d) => {
