@@ -1,4 +1,4 @@
-$(()=>{
+$(() => {
 
     function checkCPF(e) {
         let t = 0, r;
@@ -39,13 +39,12 @@ $(()=>{
     })
 
     $(".inputCpf").each((i, e) => {
-        if ($(e).attr("check")){
-            $(e).on("input",()=>{
-                let v = $(e).val(), r=checkCPF(v);
-                $(e).toggleClass("is-valid",r);
-                $(e).toggleClass("is-invalid",!r&&v.length ===14);
-                $(e)[0].setCustomValidity(r?"":"CPF Inválido");
-
+        if ($(e).attr("check")) {
+            $(e).on("input", () => {
+                let v = $(e).val(), r = checkCPF(v);
+                $(e).toggleClass("is-valid", r);
+                $(e).toggleClass("is-invalid", !r && v.length === 14);
+                $(e)[0].setCustomValidity(r ? "" : "CPF Inválido");
             })
         }
         $(e).data("cleave", new Cleave(e, {
