@@ -42,7 +42,7 @@ class Loader {
 
     start(message) {
         this._el.find(".icon").html("<i class='far fa-spin fa-spinner fa-2x'></i>");
-        this._el.find(".text").html(`<span>${_.escape(message)}</span>`);
+        this._el.find(".text").html(`<span>${message}</span>`);
         this._el.find(".hide").show();
         this._el.find(".button").hide().attr('href', '');
         this.showModal();
@@ -136,7 +136,7 @@ class Loader {
         }
 
         this._el.find(".icon").html(i);
-        this._el.find(".text").html(`<span>${_.escape(options.message)}</span>`);
+        this._el.find(".text").html(`<span>${options.message}</span>`);
 
         this.options.callback = options.callback;
         // todo fix timeout aki
