@@ -1,3 +1,20 @@
+
+
+$.fn.getFormObject = function () {
+    return $(this).serializeArray().reduce(function (obj, item) {
+        const name = item.name.replace("[]", "");
+        if (typeof obj[name] !== "undefined") {
+            if (!Array.isArray(obj[name])) {
+                obj[name] = [obj[name], item.value];
+            } else {
+                obj[name].push(item.value);
+            }
+        } else {
+            obj[name] = item.value;
+        }
+        return obj;
+    }, {});
+}
 $("form[ajax]").on("submit", (e) => {
 
     e.preventDefault();
