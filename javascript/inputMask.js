@@ -43,7 +43,7 @@ $(()=>{
             $(e).on("input",()=>{
                 let v = $(e).val(), r=checkCPF(v);
                 $(e).toggleClass("is-valid",r);
-                $(e).toggleClass("is-invalid",r&&v.length ===14);
+                $(e).toggleClass("is-invalid",!r&&v.length ===14);
                 $(e)[0].setCustomValidity(r?"":"CPF Inválido");
 
             })
