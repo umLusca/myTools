@@ -1,4 +1,4 @@
-$.fn.getFormObject = () => {
+$.fn.getFormObject = function ()  {
 	return $(this).serializeArray().reduce(function (obj, item) {
 		const name = item.name.replace("[]", "");
 		if (typeof obj[name] !== "undefined") {

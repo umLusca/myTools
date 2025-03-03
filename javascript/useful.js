@@ -47,7 +47,7 @@ function microSearchEngine(needle, haystack, insensitive = true) {
     return false;
 }
 
-function copyToClipboard(text, t) {
+function copyToClipboard(text) {
     if (window.clipboardData && window.clipboardData.setData) {
         // Internet Explorer-specific code path to prevent textarea being shown while dialog is visible.
         return window.clipboardData.setData("Text", text);
@@ -84,20 +84,3 @@ $(document).on("change", "input[type=checkbox]", (e) => {
 $("input[type=checkbox][disabled]").each((i, e) => {
     $(e).addClass("disabled").prop("disabled", false);
 })
-
-$.fn.getFormObject = function () {
-    return $(this).serializeArray().reduce(function (obj, item) {
-        const name = item.name.replace("[]", "");
-        if (typeof obj[name] !== "undefined") {
-            if (!Array.isArray(obj[name])) {
-                obj[name] = [obj[name], item.value];
-            } else {
-                obj[name].push(item.value);
-            }
-        } else {
-            obj[name] = item.value;
-        }
-        return obj;
-    }, {});
-}
-
