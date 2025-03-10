@@ -1,4 +1,4 @@
-$.fn.getFormObject = function ()  {
+$.fn.getFormObject = function () {
 	return $(this).serializeArray().reduce(function (obj, item) {
 		const name = item.name.replace("[]", "");
 		if (typeof obj[name] !== "undefined") {
@@ -53,6 +53,12 @@ $("form[ajax]").on("submit", (e) => {
 		$(e.target).find(".return").slideUp().text("").removeClass("alert-danger alert-info alert-success");
 		
 		let data = $($this).getFormObject();
+		for (const [key, value] of Object.entries($($this).data())) {
+			data[key] = value;
+		}
+		if (data["disabled"]) {
+			return;
+		}
 		
 		//por padrão é o do formulário.
 		let action = $($this).attr("action");
