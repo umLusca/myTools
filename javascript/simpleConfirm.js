@@ -9,7 +9,6 @@ function confirmar(title, description) {
 		
 		_el.one('click', "button", function (e) {
 			_el.modal("hide");
-			console.log(e)
 			if ($(e.currentTarget).hasClass("confirm")) {
 				resolve(true);
 			}
