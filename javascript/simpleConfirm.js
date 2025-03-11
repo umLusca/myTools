@@ -9,12 +9,12 @@ function confirmar(title, description) {
 		
 		_el.one('click', "button", function (e) {
 			_el.modal("hide");
-			
-			if ($(e.target).hasClass("confirm")) {
+			console.log(e)
+			if ($(e.currentTarget).hasClass("confirm")) {
 				resolve(true);
 			}
 			
-			if ($(e.currentTarget).hasClass(".cancel")) {
+			if ($(e.currentTarget).hasClass("cancel")) {
 				resolve(false);
 			}
 			
