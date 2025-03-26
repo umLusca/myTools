@@ -27,10 +27,14 @@ $.ajaxSetup({
 					window[d.responseJSON.callback](d.responseJSON);
 				}
 				if (d.responseJSON.redirect) {
-					window.location.href = d.responseJSON.redirect;
+					setTimeout(()=>{
+						window.location.href = d.responseJSON.redirect;
+					}, 2000)
 				}
 				if (d.responseJSON.refresh) {
-					window.location.reload();
+					setTimeout(()=>{
+						window.location.reload();
+					}, 2000)
 				}
 			}
 		}
@@ -90,10 +94,12 @@ $("form[ajax]").on("submit", (e) => {
 					setTimeout(
 						() => {
 							window.location.reload()
-						}, 500);
+						}, 2000);
 				}
 				if (data.redirect || d.redirect) {
-					window.location.href = d.redirect || data.redirect;
+					setTimeout(()=>{
+						window.location.href = d.redirect || data.redirect;
+					}, 2000)
 				}
 				
 				if (d.status) {
